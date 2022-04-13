@@ -6,7 +6,7 @@ require('dotenv').config()
 
 describe('As part of the sql refresh workshop', () => {
 	
-	const DATABASE_URL = process.env.DATABASE_URL;
+	const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://gary:codex123@localhost:4567/garment_app';
 
 	const pgp = PgPromise({});
 	const db = pgp(DATABASE_URL);
@@ -20,7 +20,7 @@ describe('As part of the sql refresh workshop', () => {
 	it('you should create a garment table in the database', async () => {
 
 		// use db.one
-
+		const result = await db.one('SELECT COUNT(*) FROM garment') 
 		// no changes below this line in this function
 		assert.ok(result.count);
 	});
