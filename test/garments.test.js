@@ -95,7 +95,6 @@ describe('As part of the sql refresh workshop', () => {
 		const garmentsGrouped = await db.many(`SELECT COUNT(*), gender FROM garment GROUP BY gender`)
 		
 		// write your code above this line
-		console.log(garmentsGrouped)
 
 		const expectedResult = [
 			{
