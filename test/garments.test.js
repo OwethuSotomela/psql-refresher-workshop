@@ -28,7 +28,7 @@ describe('As part of the sql refresh workshop', () => {
 	it('there should be 11 garments in the garment table - added using the supplied script', async () => {
 
 		// use db.one as 1 result us expected
-		
+		const result = await db.one('SELECT COUNT(*) FROM garment') 
 		// no changes below this line in this function
 
 		assert.equal(30, result.count);
@@ -43,7 +43,7 @@ describe('As part of the sql refresh workshop', () => {
 
 	it('you should be able to find all the Winter garments', async () => {
 		// add some code below
-
+		
 		// no changes below this line in this function
 		assert.equal(5, result.count);
 	});
