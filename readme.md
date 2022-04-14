@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/OwethuSotomela/psql-refresher-workshop.svg?branch=main)](https://app.travis-ci.com/OwethuSotomela/psql-refresher-workshop)
+
 # psql refresher workshop
 
 Fix all the failing tests. An refresh your sql knowledge in the process.
@@ -125,3 +127,4 @@ psql <your db url here>
 ```
 
 Create the garment table in the new database using the `\i sql/garment.sql` command in `psql`.
+
