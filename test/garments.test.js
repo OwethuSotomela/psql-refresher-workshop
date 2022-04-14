@@ -8,7 +8,7 @@ require('dotenv').config()
 
 describe('As part of the sql refresh workshop', () => {
 
-	const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://gary:codex123@localhost:4567/garment_app';
+	const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://localhost:5432/travis_ci_test';
 
 	const pgp = PgPromise({});
 	const db = pgp(DATABASE_URL);
