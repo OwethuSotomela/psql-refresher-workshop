@@ -52,7 +52,7 @@ describe('As part of the sql refresh workshop', () => {
 
 	it('you should be able to find all the Winter Male garments', async () => {
 		// change the code statement below
-		const result = await db.one(`SELECT COUNT(*), gender FROM garment WHERE (gender = 'Male' AND season = 'Winter') GROUP BY gender `)
+		const result = await db.one(`SELECT COUNT(*), gender FROM garment WHERE (gender = 'Male' AND season = 'Winter') GROUP BY gender`)
 		// no changes below this line in this function
 		assert.equal(3, result.count);
 	});
@@ -92,7 +92,7 @@ describe('As part of the sql refresh workshop', () => {
 	it('you should be group garments by gender and count them', async () => {
 
 		// and below this line for this function will
-		const garmentsGrouped = await db.many(`SELECT COUNT(*), gender FROM garment GROUP BY gender`)
+		const garmentsGrouped = await db.many(`SELECT COUNT(*), gender FROM garment GROUP BY gender ORDER BY gender asc`)
 		
 		// write your code above this line
 
