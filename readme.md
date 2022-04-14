@@ -125,5 +125,3 @@ psql <your db url here>
 ```
 
 Create the garment table in the new database using the `\i sql/garment.sql` command in `psql`.
-
-Travis
