@@ -1,6 +1,7 @@
 const PgPromise = require("pg-promise")
 const assert = require("assert");
 const fs = require("fs");
+const { brotliDecompress } = require("zlib");
 
 require('dotenv').config()
 
@@ -36,14 +37,14 @@ describe('As part of the sql refresh workshop', () => {
 
 	it('you should be able to find all the Summer garments', async () => {
 		// add some code below
-
+		const result = await db.many(`SELECT * FROM garment WHERE season = ${'Summer'}`)
 		// no changes below this line in this function
 		assert.equal(12, result.count);
 	});
 
 	it('you should be able to find all the Winter garments', async () => {
 		// add some code below
-		
+		const result = await db.many("SELECT * FROM garment WHERE se")
 		// no changes below this line in this function
 		assert.equal(5, result.count);
 	});
@@ -109,7 +110,7 @@ describe('As part of the sql refresh workshop', () => {
 	it('you should be able to remove all the Unisex garments', async () => {
 
 		// and below this line for this function will
-
+		await db.none(`DELETE FROM garment WHERE (gender=$1)`, ['Unisex'])
 		// write your code above this line
 
 		const gender_count_sql = 'select count(*) from garment where gender = $1'
