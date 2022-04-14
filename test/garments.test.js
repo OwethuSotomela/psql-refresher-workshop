@@ -2,6 +2,7 @@ const PgPromise = require("pg-promise")
 const assert = require("assert");
 const fs = require("fs");
 const { brotliDecompress } = require("zlib");
+const { DefaultDeserializer } = require("v8");
 
 require('dotenv').config()
 
@@ -37,21 +38,21 @@ describe('As part of the sql refresh workshop', () => {
 
 	it('you should be able to find all the Summer garments', async () => {
 		// add some code below
-		const result = await db.many(`SELECT * FROM garment WHERE season = ${'Summer'}`)
+		const result = await db.many(`SELECT * FROM garment WHERE (season = $1)`, ['Summer'])
 		// no changes below this line in this function
 		assert.equal(12, result.count);
 	});
 
 	it('you should be able to find all the Winter garments', async () => {
 		// add some code below
-		const result = await db.many("SELECT * FROM garment WHERE se")
+		const result = await db.one(`SELECT COUNT(*) FROM garment WHERE season = $1`, ['Winter'])
 		// no changes below this line in this function
 		assert.equal(5, result.count);
 	});
 
 	it('you should be able to find all the Winter Male garments', async () => {
 		// change the code statement below
-
+		const result = await db.many(`SELECT * FROM garment WHERE (gender=$1 AND season=$1)`, ['Male', 'Winter'])
 		// no changes below this line in this function
 		assert.equal(3, result.count);
 	});
